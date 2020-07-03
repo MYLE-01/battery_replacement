@@ -20,10 +20,14 @@ Requires `python_script:` to be enabled in you configuration
 so as I know the date I replace the battery ( 01/07/2020 ) dd/mm/yy   Dimmer Switch Battery Level
 
 so my logic is
-if between 01/07/2020 and now 06/07/2020 it has used 50% battery left 
-and if for 5 day its used 50% then it will take other 5 days and it be flat. right
-so all we need to do is tell a python script  the entity_id of battery and its date we replace it 
-and run it once a day /and at startup of home assistant
+If between 01/07/2020 and now 06/07/2020 it has used 50% battery left.
+
+If for 5 day its used 50% then it will take other 5 days and it be flat. right
+
+So all we need to do is tell a python script  the entity_id of battery and its date we replace it 
+and run it once a day and at startup of home assistant
+
+remember: the maths is base on the % level of the battery at the script was ran and date date it was given.
  
 ```yaml
 - sensor.dryer_door_battery , 01/01/2020
