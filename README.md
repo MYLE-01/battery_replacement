@@ -7,3 +7,5 @@ I have a lot of sensor that tell me the battery level % used
 
 
 ![battery](https://github.com/MYLE-01/battery_replacement/blob/master/battery_level.PNG)
+
+so as I know the date I replace the battery (
