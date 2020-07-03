@@ -8,6 +8,15 @@ I have a lot of sensor that tell me the battery level % used
 
 ![battery](https://github.com/MYLE-01/battery_replacement/blob/master/img/battery_level.PNG)
 
+
+## How it works
+This script creates a sensor that work out weather you are on/off for today
+with a heap of attribute 
+
+Requires `python_script:` to be enabled in you configuration
+
+
+## my logic
 so as I know the date I replace the battery ( 01/07/2020 ) dd/mm/yy   Dimmer Switch Battery Level
 
 so my logic is
