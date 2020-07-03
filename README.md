@@ -36,9 +36,14 @@ list the battery sensor , and the date it was replace
 ```yaml
 - sensor.dryer_door_battery , 01/01/2020
 ```
-
-
-
+key | required | type | description
+-- | -- | -- | --
+replaced: | True | string | entity_id , dd/mm/yyyy 
+sensor_on_days: | True |number| number of days sensor set to on
+entity_id: |True|string| the name of the new entity_id:
+friendly_name:| True| string|the display name
+icon: | True | string | its icon 
+display: | True | string | days to shows days count of date to show date next change
 
 
 
