@@ -10,8 +10,7 @@ I have a lot of sensor that tell me the battery level % used
 
 
 ## How it works
-This script creates a sensor that work out weather you are on/off for today
-with a heap of attribute 
+This script creates a sensor that guess the next battery change base of % Used and date of replacement
 
 Requires `python_script:` to be enabled in you configuration
 
@@ -27,7 +26,7 @@ If for 5 day its used 50% then it will take other 5 days and it be flat. right
 So all we need to do is tell a python script  the entity_id of battery and its date we replace it 
 and run it once a day and at startup of home assistant
 
-remember: the maths is base on the % level of the battery at the script was ran and date date it was given.
+remember: the maths is base on the % level at the battery the script was ran and date date it was given.
  
 ```yaml
 - sensor.dryer_door_battery , 01/01/2020
@@ -66,7 +65,7 @@ display: | True | string | days to shows days count of date to show date next ch
 so this automation runs on start and at 00:00:01 midnite
 
 ```yaml
-- alias: Reminder - Refresh date countdown sensors
+- alias: Do a percentage check on battery work replace days
     initial_state: on
     trigger:
       - platform: time
