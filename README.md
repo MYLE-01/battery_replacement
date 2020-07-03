@@ -95,3 +95,4 @@ its popup
 ![battery](https://github.com/MYLE-01/battery_replacement/blob/master/img/popup.PNG)
 
 
+sorry about the bad english i have dyslexia taken me more time to right this than right the code.
