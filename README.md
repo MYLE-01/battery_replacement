@@ -2,32 +2,31 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 
-want to learn python and give back to home assistant
-I have a lot of sensor that tell me the battery level % used
-
+I have a lot of sensor that tell me the battery level % 
 
 ![battery](https://github.com/MYLE-01/battery_replacement/blob/master/img/battery_level.PNG)
 
 
 ## How it works
-This script creates a sensor that guess the next battery change base of % Used and date of replacement
+This script creates a sensor that guesses the next battery change base of % Used and date of replacement
 
 Requires `python_script:` to be enabled in you configuration
 
 
-## My logic (my thinking)
-so as I know the date I replace the battery ( 01/07/2020 ) dd/mm/yy   Dimmer Switch Battery Level
+## My logic (my thinking is ....)
+so as I know the date I replace the battery ( 01/07/2020 ) dd/mm/yy  Dimmer Switch Battery Level
 
 so my logic is
-If between 01/07/2020 and now 06/07/2020 it has used 50% battery left.
+If between 01/07/2020 and now 06/07/2020 it has used 50% of battery.
 
-If for 5 day its used 50% then it will take other 5 days and it be flat. right
+If for 5 day its used 50% then it will take other 5 days and it be flat. base of these 5 days been the same as the last 5 days 
 
-So all we need to do is tell a python script  the entity_id of battery and its date we replace it 
+So all we need to do is tell a python script the entity_id of battery and the date we replace it 
 and run it once a day and at startup of home assistant
 
-remember: the maths is base on the % level at the battery the script was ran and date date it was given.
+remember: the maths is base on the % level at the battery the script was run and date it was given.
  
+so we have the entity_id , replacement date dd/mm/yyy
 ```yaml
 - sensor.dryer_door_battery , 01/01/2020
 ```
