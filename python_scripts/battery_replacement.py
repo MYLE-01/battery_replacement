@@ -57,7 +57,7 @@ for battery in BATTERY_LIST:
         else:
             BATTERY_LIST_NEW[battery_name]  =  '{}/{}/{}'.format(battery_next.day,battery_next.month,battery_next.year)
     else:
-        BATTERY_LIST_NEW[battery_name]  = '--'
+        BATTERY_LIST_NEW[battery_name + ' = 0%']]  = '--'
 
 hass.states.set(SensorName , on_off , BATTERY_LIST_NEW )
 
