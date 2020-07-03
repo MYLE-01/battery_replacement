@@ -8,13 +8,37 @@ I have a lot of sensor that tell me the battery level % used
 
 ![battery](https://github.com/MYLE-01/battery_replacement/blob/master/battery_level.PNG)
 
-so as I know the date I replace the battery ( 01/02/2020 ) dd/mm/yy   Dimmer Switch Battery Level
+so as I know the date I replace the battery ( 01/07/2020 ) dd/mm/yy   Dimmer Switch Battery Level
 
-so between 01/02/2020 and now 03/07/2020 it has used 20% 
+so between 01/07/2020 and now 06/07/2020 it has used 50% battery left 
 
-so my logic is  for 153 day its used 20%  
+so my logic is for 5 day its used 50% then it will take other 5 days and it be flat. right
 
-so (.20/153) = 0.0013 battery per day 
+```yaml
+  - data:
+      replaced:
+      - sensor.dryer_door_battery , 01/01/2020
+      - sensor.dimmer_switch_battery_level , 01/02/2020
+      - sensor.bathroom_battery_level , 08/06/2020
+      - sensor.cupboard_battery_level , 08/06/2020
+      - sensor.hall_battery , 05/05/2020
+      - sensor.lounge_battery_level , 08/06/2020
+      sensor_on_days: 30
+      entity_id: status_battery
+      friendly_name: Battery Status 
+      icon: mdi:calendar-star
+      display: days
+```
+
+in the replaced:
+list the battery sensor , and the date it was replace
+
+```yaml
+- sensor.dryer_door_battery , 01/01/2020
+```
+
+
+
 
 
 
