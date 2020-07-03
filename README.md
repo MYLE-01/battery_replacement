@@ -10,9 +10,18 @@ I have a lot of sensor that tell me the battery level % used
 
 so as I know the date I replace the battery ( 01/07/2020 ) dd/mm/yy   Dimmer Switch Battery Level
 
-so between 01/07/2020 and now 06/07/2020 it has used 50% battery left 
+so my logic is
+if between 01/07/2020 and now 06/07/2020 it has used 50% battery left 
 
-so my logic is for 5 day its used 50% then it will take other 5 days and it be flat. right
+ for 5 day its used 50% then it will take other 5 days and it be flat. right
+ 
+ so all we need to do is tell a python script  the entity_id of battery and its date i replace it 
+ 
+```yaml
+- sensor.dryer_door_battery , 01/01/2020
+```
+
+putting it all together
 
 ```yaml
   - data:
@@ -30,12 +39,7 @@ so my logic is for 5 day its used 50% then it will take other 5 days and it be f
       display: days
 ```
 
-in the replaced:
-list the battery sensor , and the date it was replace
-
-```yaml
-- sensor.dryer_door_battery , 01/01/2020
-```
+# what is required
 
 key | required | type | description
 -- | -- | -- | --
@@ -47,7 +51,7 @@ icon: | True | string | its icon
 display: | True | string | days to shows days count of date to show date next change
 
 
-I run this automation that runs on start and at 
+so this automation runs on start and at 00:00:01 midnite
 
 ```yaml
 - alias: Reminder - Refresh date countdown sensors
