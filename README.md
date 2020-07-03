@@ -36,9 +36,10 @@ list the battery sensor , and the date it was replace
 ```yaml
 - sensor.dryer_door_battery , 01/01/2020
 ```
+
 key | required | type | description
 -- | -- | -- | --
-replaced: | True | string | entity_id , dd/mm/yyyy 
+replaced: | True | string | entity_id , its replace date in format or dd/mm/yyyy 
 sensor_on_days: | True |number| number of days sensor set to on
 entity_id: |True|string| the name of the new entity_id:
 friendly_name:| True| string|the display name
@@ -46,5 +47,32 @@ icon: | True | string | its icon
 display: | True | string | days to shows days count of date to show date next change
 
 
+I run this automation that runs on start and at 
+
+```yaml
+- alias: Reminder - Refresh date countdown sensors
+    initial_state: on
+    trigger:
+      - platform: time
+        at: '00:00:01'
+      - platform: homeassistant
+        event: start
+    action:
+      - data:
+          replaced:
+          - sensor.dryer_door_battery , 01/01/2020
+          - sensor.dimmer_switch_battery_level , 01/02/2020
+          - sensor.bathroom_battery_level , 08/06/2020
+          - sensor.cupboard_battery_level , 08/06/2020
+          - sensor.hall_battery , 05/05/2020
+          - sensor.lounge_battery_level , 08/06/2020
+          sensor_on_days: 30
+          entity_id: status_battery
+          friendly_name: Battery Status 
+          icon: mdi:calendar-star
+          display: days
+        service: python_script.battery_replacement
+        
+```        
 
 
