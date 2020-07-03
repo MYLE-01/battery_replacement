@@ -79,4 +79,8 @@ so this automation runs on start and at 00:00:01 midnite
         
 ```        
 
+its popup
+
+![battery](https://github.com/MYLE-01/battery_replacement/blob/master/popup.PNG)
+
 
