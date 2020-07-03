@@ -21,12 +21,9 @@ so as I know the date I replace the battery ( 01/07/2020 ) dd/mm/yy   Dimmer Swi
 
 so my logic is
 if between 01/07/2020 and now 06/07/2020 it has used 50% battery left 
-
- and if for 5 day its used 50% then it will take other 5 days and it be flat. right
- 
- so all we need to do is tell a python script  the entity_id of battery and its date we replace it 
- 
- and run it once a day /and at startup of home assistant
+and if for 5 day its used 50% then it will take other 5 days and it be flat. right
+so all we need to do is tell a python script  the entity_id of battery and its date we replace it 
+and run it once a day /and at startup of home assistant
  
 ```yaml
 - sensor.dryer_door_battery , 01/01/2020
