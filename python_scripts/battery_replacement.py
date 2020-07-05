@@ -55,7 +55,7 @@ for battery in BATTERY_LIST:
         if DISPLAY == "days":
             BATTERY_LIST_NEW[battery_name + ' = ' + str(battery_state) +'%']  =  str(battery_per_day) + ' day(s)'
         else:
-            BATTERY_LIST_NEW[battery_name]  =  '{}/{}/{}'.format(battery_next.day,battery_next.month,battery_next.year)
+            BATTERY_LIST_NEW[battery_name + ' = ' + str(battery_state) +'%']  =  '{}/{}/{}'.format(battery_next.day,battery_next.month,battery_next.year)
     else:
         BATTERY_LIST_NEW[battery_name + ' = 0%']  = '--'
 
