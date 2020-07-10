@@ -40,6 +40,7 @@ for battery in BATTERY_LIST:
     battery_age_days = int((today - battery_st).days)
     #logger.info("battery_age_days = %s ",battery_age_days)
     battery_name = Get_name(battery_ID)
+    logger.info("Get_state(battery_ID) = %s ",battery_ID)
     battery_state = int(100 - int(Get_state(battery_ID)))
     #logger.info("battery_state = %s ",battery_state)
     if battery_state > 0:
