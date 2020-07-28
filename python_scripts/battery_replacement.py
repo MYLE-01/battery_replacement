@@ -19,12 +19,19 @@ BATTERY_LIST_NEW = {'friendly_name' : friendly_name ,'icon' : icon ,'Battery = U
 def Get_state(entity_id):
     check_time = today
     state = hass.states.get(entity_id)
-    return state.state  
+    num = state.state
+    if num is None:
+        return 100
+    else:
+        return state.state 
 
 def Get_name(entity_id):
     check_time = today
     state = hass.states.get(entity_id)
-    return state.name 
+    if hass.states.get(entity_id) is None:
+        return entity_id
+    else:
+        return state.name 
 
 for battery in BATTERY_LIST:
     aa = battery.split(",")
