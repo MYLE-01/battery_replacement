@@ -28,7 +28,7 @@ def Get_state(entity_id):
 def Get_name(entity_id):
     check_time = today
     state = hass.states.get(entity_id)
-    if hass.states.get(entity_id) is None:
+    if (hass.states.get(entity_id) is None) and (hass.states.get(entity_id) == unavailable) :
         return entity_id
     else:
         return state.name 
