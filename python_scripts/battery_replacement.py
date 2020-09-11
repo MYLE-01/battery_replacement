@@ -20,6 +20,12 @@ def Get_state(entity_id):
     check_time = today
     state = hass.states.get(entity_id)
     num = state.state
+
+# if unavailable make 100 battery
+    if num == 'unavailable' :
+        return 100
+
+
     if num is None:
         return 100
     else:
