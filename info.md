@@ -43,6 +43,8 @@ putting it all together
       - sensor.hall_battery , 05/05/2020
       - sensor.lounge_battery_level , 08/06/2020
       sensor_on_days: 30
+      replacement_sensor: 'Yes'
+      replace_patten: '_battery_level'
       entity_id: status_battery
       friendly_name: Battery Status 
       icon: mdi:calendar-star
@@ -59,7 +61,8 @@ entity_id: |True|string| the name of the new entity_id:
 friendly_name:| True| string|the display name
 icon: | True | string | its icon 
 display: | True | string | days to shows days count of date to show date next change
-
+replacement_sensor: | yes/no | String | Make replacement 
+replace_patten: | '_battery_level' | String | what you want taken out of old entity_id
 
 so this automation runs on start and at 00:00:01 midnite
 
@@ -81,6 +84,8 @@ so this automation runs on start and at 00:00:01 midnite
           - sensor.hall_battery , 05/05/2020
           - sensor.lounge_battery_level , 08/06/2020
           sensor_on_days: 30
+          replacement_sensor: 'Yes'
+          replace_patten: '_battery_level'
           entity_id: status_battery
           friendly_name: Battery Status 
           icon: mdi:calendar-star

@@ -3,15 +3,18 @@ logger.info("== Battery Replacement Logic == ")
 today = datetime.datetime.now().date()
 
 BATTERY_LIST = data.get("replaced", [])
+REPLACE_PATTEN = data.get("replace_patten", '')
+REPLACEMENT = data.get("replacement_sensor", '')
 # number oof days to turn on sensor.
 SENSOR_ON_DAYS = data.get("sensor_on_days", [])
 # Display can only be days or date
-DISPLAY = data.get("display", [])
+DISPLAY = data.get("display", '')
 ENTITY_ID = data.get("entity_id", None)
 sensor_on_days = data.get("sensor_on_days", None)
 on_off = 'off'
 friendly_name = data.get("friendly_name", None)
 icon = data.get("icon", None)
+States = 'unavailable'
 SensorName = "sensor.{}".format(ENTITY_ID.replace(" " , "_"))
 
 BATTERY_LIST_NEW = {'friendly_name' : friendly_name ,'icon' : icon ,'Battery = Usage':'Next'}
@@ -20,7 +23,6 @@ def Get_state(entity_id):
     check_time = today
     state = hass.states.get(entity_id)
     num = state.state
-
 # if unavailable make 100 battery
     if num == 'unavailable' :
         return 100
@@ -38,6 +40,16 @@ def Get_name(entity_id):
         return entity_id
     else:
         return state.name 
+
+
+def Make_New_Sensor(entity_id,States,battery_state):
+    if REPLACEMENT == 'Yes' :
+        friendly_name = Get_name(entity_id)
+        #Take out the '_battery_level' 
+        New_Sensor_Name = 'replacement_{}'.format(entity_id).replace('sensor.','').replace(REPLACE_PATTEN,'')
+        #logger.info("SensorName = %s ",New_Sensor_Name)
+        hass.states.set('sensor.{}'.format(New_Sensor_Name) , States ,attributes = {"friendly_name": friendly_name , "Percentage": battery_state } )
+    else:
 
 for battery in BATTERY_LIST:
     aa = battery.split(",")
@@ -68,10 +80,15 @@ for battery in BATTERY_LIST:
         battery_next = battery_st + datetime.timedelta(days=battery_per_day)
         if DISPLAY == "days":
             BATTERY_LIST_NEW[battery_name + ' = ' + str(battery_state) +'%']  =  str(battery_per_day) + ' day(s)'
+            States = str(battery_per_day) + ' day(s)'
         else:
             BATTERY_LIST_NEW[battery_name + ' = ' + str(battery_state) +'%']  =  '{}/{}/{}'.format(battery_next.day,battery_next.month,battery_next.year)
+            States = '{}/{}/{}'.format(battery_next.day,battery_next.month,battery_next.year)
     else:
         BATTERY_LIST_NEW[battery_name + ' = 0%']  = '--'
+        States = 'unavailable'
+    Make_New_Sensor(battery_ID,States,str(battery_state) +'%')
+
 
 hass.states.set(SensorName , on_off , BATTERY_LIST_NEW )
 
