@@ -81,8 +81,35 @@ entity_id: |True|string| the name of the new entity_id:
 friendly_name:| True| string|the display name
 icon: | True | string | its icon 
 display: | True | string | days to shows days count of date to show date next change
-replacement_sensor: | yes/no | String | Make replacement 
+replacement_sensor: | yes/no | String | Make replacement sensor
 replace_patten: | '_battery_level' | String | what you want taken out of old entity_id
+
+the replace_patten is
+used if you and "custom:auto-entities" have a filter "sensor.*.battery_level*"
+
+eg this is mine
+
+```yaml
+card:
+  align: split
+  columns: 1
+  height: 20
+  title_position: inside
+  type: 'custom:bar-card'
+  unit_of_measurement: '%'
+  width: 100%
+filter:
+  include:
+    - entity_id: sensor.*.battery_level*
+      state: <=100
+type: 'custom:auto-entities'
+```
+which create the 
+
+![Bar](https://github.com/MYLE-01/battery_replacement/blob/master/img/bar.PNG)
+
+as I dont want to mixing so I used a replace to taken out the *.battery_level*
+
 
 so this automation runs on start and at 00:00:01 midnite
 
