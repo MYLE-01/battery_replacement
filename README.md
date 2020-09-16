@@ -9,8 +9,13 @@ I have a lot of sensor that tell me the battery level %
 ## Update 16/09/2020
 It can now create a replacement sensor.
 
+![Replacement](https://github.com/MYLE-01/battery_replacement/blob/master/img/replacement.PNG)
 
+Its popup
 
+![Newpopup](https://github.com/MYLE-01/battery_replacement/blob/master/img/newpopup.PNG)
+
+https://github.com/MYLE-01/battery_replacement/blob/master/img/newpopup.PNG
 
 ## How it works
 This script creates a sensor that guesses the next battery change base of % Used and date of replacement
