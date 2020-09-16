@@ -43,13 +43,11 @@ def Get_name(entity_id):
 
 
 def Make_New_Sensor(entity_id,States,battery_state):
-    if REPLACEMENT == 'Yes' :
-        friendly_name = Get_name(entity_id)
-        #Take out the '_battery_level' 
-        New_Sensor_Name = 'replacement_{}'.format(entity_id).replace('sensor.','').replace(REPLACE_PATTEN,'')
-        #logger.info("SensorName = %s ",New_Sensor_Name)
-        hass.states.set('sensor.{}'.format(New_Sensor_Name) , States ,attributes = {"friendly_name": friendly_name , "Percentage": battery_state } )
-    else:
+    friendly_name = Get_name(entity_id)
+    #Take out the '_battery_level' 
+    New_Sensor_Name = 'replacement_{}'.format(entity_id).replace('sensor.','').replace(REPLACE_PATTEN,'')
+    #logger.info("SensorName = %s ",New_Sensor_Name)
+    hass.states.set('sensor.{}'.format(New_Sensor_Name) , States ,attributes = {"friendly_name": friendly_name , "Percentage": battery_state } )
 
 for battery in BATTERY_LIST:
     aa = battery.split(",")
@@ -87,7 +85,7 @@ for battery in BATTERY_LIST:
     else:
         BATTERY_LIST_NEW[battery_name + ' = 0%']  = '--'
         States = 'unavailable'
-
+    Make_New_Sensor(battery_ID,States,str(battery_state) +'%')
 
 hass.states.set(SensorName , on_off , BATTERY_LIST_NEW )
 
