@@ -11,6 +11,16 @@ It can now create a replacement sensor.
 
 ![Replacement](https://github.com/MYLE-01/battery_replacement/blob/master/img/replacement.PNG)
 
+```yaml
+card:
+  type: entities
+  title: Battery Replacement
+filter:
+  include:
+    - entity_id: sensor.replacement*
+type: 'custom:auto-entities'
+```
+
 Its popup
 
 ![Newpopup](https://github.com/MYLE-01/battery_replacement/blob/master/img/newpopup.PNG)
