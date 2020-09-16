@@ -87,7 +87,6 @@ for battery in BATTERY_LIST:
     else:
         BATTERY_LIST_NEW[battery_name + ' = 0%']  = '--'
         States = 'unavailable'
-    Make_New_Sensor(battery_ID,States,str(battery_state) +'%')
 
 
 hass.states.set(SensorName , on_off , BATTERY_LIST_NEW )
