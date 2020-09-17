@@ -145,5 +145,21 @@ its popup
 
 ![battery](https://github.com/MYLE-01/battery_replacement/blob/master/img/popup.PNG)
 
+if you have the custom:fold-entity-row you can put them into a card
+```yaml
+entities:
+  - entity: sensor.status_battery
+  - head: script.python_script_battery
+    items:
+      - card:
+          type: entities
+        filter:
+          include:
+            - entity_id: sensor.replacement*
+        type: 'custom:auto-entities'
+    type: 'custom:fold-entity-row'
+
+```
+
 
 sorry about the bad english i have dyslexia taken me more time to right this than right the code.
