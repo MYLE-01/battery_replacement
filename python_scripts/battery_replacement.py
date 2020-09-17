@@ -43,7 +43,7 @@ def Get_name(entity_id):
 
 
 def Make_New_Sensor(entity_id,States,battery_state):
-    friendly_name = Get_name(entity_id)
+    friendly_name = Get_name(entity_id).replace('Level','Replacement')
     #Take out the '_battery_level' 
     New_Sensor_Name = 'replacement_{}'.format(entity_id).replace('sensor.','').replace(REPLACE_PATTEN,'')
     #logger.info("SensorName = %s ",New_Sensor_Name)
