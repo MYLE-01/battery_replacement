@@ -27,7 +27,6 @@ def Get_state(entity_id):
     if num == 'unavailable' :
         return 100
 
-
     if num is None:
         return 100
     else:
@@ -40,7 +39,6 @@ def Get_name(entity_id):
         return entity_id
     else:
         return state.name 
-
 
 def Make_New_Sensor(entity_id,States,battery_state):
     friendly_name = Get_name(entity_id).replace('Level','Replacement')

@@ -145,6 +145,8 @@ its popup
 
 ![battery](https://github.com/MYLE-01/battery_replacement/blob/master/img/popup.PNG)
 
+
+
 if you have the custom:fold-entity-row you can put them into a card
 ```yaml
 entities:
